@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Python_Playground", "Python_Playground\Python_Playground.pyproj", "{7623A342-3471-45A1-98A6-E980CC62DB98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7623A342-3471-45A1-98A6-E980CC62DB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7623A342-3471-45A1-98A6-E980CC62DB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B191339-27CC-4955-A354-2CEB0A4C48FC}
+	EndGlobalSection
+EndGlobal
