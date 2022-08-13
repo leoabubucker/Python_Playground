@@ -1,3 +1,5 @@
+import json
+
 # Object Oriented Programming
 
     # OOP Basics
@@ -278,3 +280,18 @@ def func(word, add=5, freq=1):
     print(f"The freq variable is {freq}")
     print(f"The add variable is {add}")
 call = func('hello', freq=3)
+
+
+test_str =  '{"Studying": "1", "Gaming": 2}'
+dictionary = {"Studying": 1, "Gaming": 2}
+#dictionary2 = dict(test_str)
+print(test_str, dictionary, json.loads(test_str))
+
+i = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+for i in i:
+    if i %2 != 0:
+        print(f"Odd Number: {i}")
+    elif i % 2 == 0:
+        print(f"Even Number: {i}")
+    else: 
+        print(f"Unknown Number: {i}")
