@@ -295,3 +295,182 @@ for i in i:
         print(f"Even Number: {i}")
     else: 
         print(f"Unknown Number: {i}")
+
+#factorial function
+def factorial(x):
+  total = 1
+  numbers = [i for i in range(x, 0, -1)]
+  for i in numbers:
+    total *= i
+  print(total)
+  return total
+factorial(5)
+
+#prime function
+def is_prime(x):
+    if x < 2:
+        return False
+    else:
+        for n in range(2, x-1):
+            if x % n == 0:
+                return False
+        return True
+
+print(is_prime(13))
+print(is_prime(10))
+
+#text reverser
+def reverse(text):
+  letters = []
+  reversed_letters = []
+  for i in text:
+    letters.append(i)
+  diff = 0
+  #print(letters)
+  index = len(letters) - 1
+  #print(index)
+  while(index >= 0):
+      reversed_letters.append(letters[index])
+      #print(reversed_letters)
+      diff += 1
+      index = len(letters) - 1 - diff
+  string = "".join(reversed_letters)
+  print(string)
+  return string
+reverse("thistextisreversed!")
+
+#Vowel removal
+
+print("Doesn't Work:")
+def anti_vowel(text):
+  char_list = []
+  for char in text:
+    char_list.append(char)
+  print(char_list)
+  for i in char_list:
+    print(i)
+    print("")
+    if i.lower() in ['a', 'e', 'i', 'o','u']:
+      char_list.remove(i)
+      print("Removed: " + i)
+      print(char_list)
+      print("")
+    else:
+      print("Kept: " + i)
+      print(char_list)
+      print("")
+  print("".join(char_list))
+  return "".join(char_list)
+anti_vowel('Hey look Words!')
+
+print("Works:")
+def anti_vowel(text):
+    result = ""
+    vowels = "ieaou"
+    for char in text:
+          if char.lower() not in vowels:
+            result += char
+    return result
+print(anti_vowel('Hey look Words!'))
+print("")
+
+#Scrabble Score
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1, 
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4, 
+         "x": 8, "z": 10}
+def scrabble_score(word):
+  print(word)
+  letters = [i for i in score]
+  points = []
+  for char in word:
+    if(char.lower() in letters):
+      #print(char.lower())
+      points.append(score[char.lower()])
+ # print(points)
+  total = 0
+  for i in points:
+    total += i
+  print(total)
+  return total
+scrabble_score('test')
+print("")
+scrabble_score('ABC')
+print("")
+
+#Censor Word
+def censor(text, word):
+  #print(text)
+  #print(word)
+  
+  censored = text.replace(word, "*" * len(word))
+  #print(censored)
+  return censored
+
+print(censor("My password is 1234", str(1234)))
+print("")
+
+#Frequency in Lists
+def count(sequence, item):
+  total = 0
+  for i in sequence.split():
+    if i.replace(".", "") == item:
+      total += 1
+  return total
+print(count("Hello my name is Leo. I'm Leo. Leo is my name!", 'Leo'))
+print("")
+
+#Remove even/odd numbers
+def purify(numbers, method):
+  purified = []
+  for i in numbers:
+    if(method.lower() == 'even'):
+        if(i % 2 == 0):
+            purified.append(i)
+    elif(method.lower() == 'odd'):
+        if(i % 2 != 0):
+            purified.append(i)
+  return purified
+print(f"1-5 Odd: {purify([1, 2, 3, 4, 5], 'odd')}")
+print(f"1-5 Even: {purify([1, 2, 3, 4, 5], 'even')}")
+print("")
+
+#Multiplies numbers in list
+def product(numbers):
+  total = 1
+  for i in numbers:
+    total *= i
+  return total
+print(product([1,5,2]))
+print("")
+#Remove Duplicates
+def remove_duplicates(lst):
+  print(f"Original List: {lst}")
+  edited_lst = []
+  for i in lst:
+    if i not in edited_lst:
+      edited_lst.append(i)
+  return edited_lst
+print(f"Edited List: {remove_duplicates([1, 5, 5, 3, 3, 2, 2, 1, 1, 'hi', 'hi'])}")
+print("")
+
+#Gets Median of List
+def median(lst):
+  print(lst)
+  sorted_lst = sorted(lst)
+  print(sorted_lst)
+  if(len(sorted_lst) % 2 == 0):
+    isEven = True
+  else:
+    isEven = False
+  if(isEven):
+    index = int((len(sorted_lst) / 2) - 1)
+    index2 = int(index + 1)
+    median = (sorted_lst[index] + sorted_lst[index2]) /2
+  else: 
+    index = int(round((len(sorted_lst) / 2) - 1))
+    median = (sorted_lst[index])
+  return median
+print(median([24, 33, 11, 33]))
+  
