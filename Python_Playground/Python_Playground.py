@@ -4,6 +4,7 @@ import json
 
     # OOP Basics
 from csv import list_dialects
+from unicodedata import decimal
 
 
 print("OOP Basics")
@@ -474,3 +475,114 @@ def median(lst):
   return median
 print(median([24, 33, 11, 33]))
   
+#Bitwise Operators
+#binary numbers are prefaced by 0b
+
+
+# bin() input: either decimal or binary; output: binary
+
+print(bin(0b100)) #Output 0b100
+print(bin(4)) #Output 0b100
+
+print(int("200", 12))
+print(bin(int("200", 12)))
+
+def base_to_base(init_number, init_base, conv_base):
+    num_digits = -1
+    ind_digits = []
+    mult_digits = []
+    decimal_conv = 0
+    for i in str(init_number):
+        num_digits += 1
+        ind_digits.append(int(i))
+    for i in ind_digits:
+       mult_digits.append(i * (init_base ** num_digits))
+       num_digits -=1;
+    for i in mult_digits:
+        decimal_conv += i;
+    #if(conv_base == 10):
+    #   return decimal_conv
+    
+    quotients_list = []
+    remainders_list = []
+    q = int(decimal_conv / conv_base)
+    r = int(decimal_conv % conv_base)
+    quotients_list.append(q)
+    remainders_list.append(r)
+    #print(quotients_list, remainders_list)
+    while q != 0:
+        r =  q % conv_base
+        q /= conv_base
+        quotients_list.append(int(q))
+        remainders_list.append(int(r))
+        #print(quotients_list, remainders_list)
+    
+    conv_factor = 1
+    remainder_total = 0
+    #test_lst = [8,4,2, 1]
+    for  i in remainders_list:
+        remainder_total += i * conv_factor
+        conv_factor *= 10
+    #print(remainder_total)
+
+    if(conv_base == 10):
+        return decimal_conv
+    else:
+        return remainder_total
+print(f" 200 (base 11) to base 10: {base_to_base(10, 2, 16)}")
+
+
+def slopeProgram():
+    pointlst = []
+    #intlst = []
+    #floatlst = []
+    numlst = []
+    def calcSlopePoints(y2, y1, x2, x1):
+        pointlst.append(y2)
+        pointlst.append(y1)
+        pointlst.append(x2)
+        pointlst.append(x1)
+        for i in pointlst:
+            if(i.lower() == "r"):
+                print("Restarting Program...")
+                #restartProgram(2, 'start')
+            elif(i.lower() == 'b'):
+                print("Restarting Subprogram...")
+                #restartProgram(2, 'slope')
+            elif(i.replace('.', '').replace('-', '').isnumeric() == False):
+                print("Invalid user input, please only use integers or decimals. \nRestarting Subprogram...")
+                #restartProgram(2, 'slope')
+            elif(i.count('.') == 0):
+                #print("int")
+                numlst.append(int(i))
+            elif(i.count('.') == 1):
+                #print("float")
+                numlst.append(float(i))
+        return (numlst[0] - numlst[1]) / (numlst[2] - numlst[3])
+    def calcSlopeCoords(coord1, coord2):
+        init_coordlst= []
+        coordlst = []
+        init_coordlst.append(coord1)
+        init_coordlst.append(coord2)
+        for i in init_coordlst:
+          print(i)
+          coordv1=  i.replace('(', '')
+          coordv2=  coordv1.replace(')', '')
+          coordv3 = coordv2.split(", ")
+          coordlst.extend(coordv3)
+          print(coordlst)
+        return calcSlopePoints(coordlst[3], coordlst[1], coordlst[2], coordlst[0])
+
+    global user_input
+    user_input = input("Do you want to input \n1. 2 coordinates \n2. The values of y2, y1, x2, and x1?")
+    if(user_input == "1"):
+        coord1 = input("First coordinate in the following form (x, y): ")
+        coord2 = input("Second coordinate in the following form (x, y): ")
+        print(f"The slope of your inputted coordinates is: {calcSlopeCoords(coord1, coord2)}")
+    elif(user_input == "2"):
+        y2 = input("Value of y2: ")
+        y1 = input("Value of y1: ")
+        x2 = input("Value of x2: ")
+        x1 = input("Value of x1: ")
+        print(f"The slope of your inputted points is: {calcSlopePoints(y2, y1, x2, x1)}")
+#slopeProgram()
